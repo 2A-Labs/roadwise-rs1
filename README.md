@@ -120,7 +120,7 @@ dotnet test
 | Admin početna (mjesto za dashboard), postavke, kursna lista | – | `/admin`, `/admin/settings`, `/admin/exchange-rates` |
 | Početna za korisnika | – | `/client` |
 
-Uplate u više valuta, kurs koji se pamti uz transakciju i povrat novca dio su issuea #8.
+Uplate u više valuta, kurs koji se pamti uz transakciju i povrat novca dio su issuea #14–#16.
 
 ### Šta je uklonjeno iz početnog projekta
 

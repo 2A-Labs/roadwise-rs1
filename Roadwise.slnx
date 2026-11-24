@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="Roadwise.Backend/Roadwise.API/Roadwise.API.csproj" />
+  <Project Path="Roadwise.Backend/Roadwise.Application/Roadwise.Application.csproj" />
+  <Project Path="Roadwise.Backend/Roadwise.Domain/Roadwise.Domain.csproj" />
+  <Project Path="Roadwise.Backend/Roadwise.Infrastructure/Roadwise.Infrastructure.csproj" />
+  <Project Path="Roadwise.Backend/Roadwise.Shared/Roadwise.Shared.csproj" />
+  <Project Path="Roadwise.Backend/Roadwise.Tests/Roadwise.Tests.csproj" />
+</Solution>

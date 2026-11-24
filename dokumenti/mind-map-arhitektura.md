@@ -240,7 +240,7 @@ Queries/List/
 - **Primjeri poslovnih pravila koja su ostala** (uzor za naše flowove):
   - [CreateExchangeRateCommandHandler](../Roadwise.Backend/Roadwise.Application/Modules/Finance/ExchangeRates/Commands/Create/CreateExchangeRateCommandHandler.cs): nepoznata valuta → 404, kurs za baznu valutu → 409 (`RoadwiseBusinessRuleException`), duplikat za isti trenutak → 409 (uz unique indeks kao zadnju odbranu).
   - [RefreshTokenCommandHandler](../Roadwise.Backend/Roadwise.Application/Modules/Auth/Commands/Refresh/RefreshTokenCommandHandler.cs): stanje tokena (aktivan, opozvan, istekao) i pravilo „ponovna upotreba = krađa”, s `TimeProvider` umjesto `DateTime.UtcNow`.
-  - [CurrencyConverter](../Roadwise.Backend/Roadwise.Infrastructure/Common/CurrencyConverter.cs): kurs važeći na zadani datum i zaokruživanje `Math.Round(…, AwayFromZero)` (bitno za uplate, #8).
+  - [CurrencyConverter](../Roadwise.Backend/Roadwise.Infrastructure/Common/CurrencyConverter.cs): kurs važeći na zadani datum i zaokruživanje `Math.Round(…, AwayFromZero)` (bitno za uplate, #14–#16).
   - Primjeri iz startera koji su obrisani (prelazi statusa narudžbe, vlasništvo podataka „ko nije admin vidi samo svoje”, zabrana brisanja roditelja s djecom) su u repozitoriju predmeta `adil-fit-ba/rs1-2026-27`, folder `starter`.
 
 ### 4.3 Infrastructure
@@ -367,7 +367,7 @@ sequenceDiagram
 | Fallback policy | **Svaki endpoint traži prijavu**, osim onih sa `[AllowAnonymous]` | isto |
 | Policy `Admin` | `[Authorize(Policy = PolicyNames.Admin)]` traži claim `is_admin = "true"`: bez tokena 401, pogrešna uloga 403 | isto |
 | Defense in depth | Handler ponovo provjeri `currentUser.IsAdmin` iako endpoint već ima policy | obrazac za naše handlere (primjer je bio u obrisanom katalogu) |
-| Vlasništvo podataka | Upit filtrira po `currentUser.UserId`, npr. kandidat vidi samo svoje uplate i termine | naši upiti (#9, #11, #16, #25) |
+| Vlasništvo podataka | Upit filtrira po `currentUser.UserId`, npr. kandidat vidi samo svoje uplate i termine | naši upiti (#18, #22, #23, #28, #46, #47) |
 
 ## 7. Ključne odluke i „zašto”
 
@@ -394,14 +394,14 @@ Kratki odgovori za tehnički intervju na odbrani.
 
 > Ovaj dio se puni kako implementiramo issuee. Uz svaki PR koji dodaje entitet, modul, pravilo ili ekran ažurira se odgovarajuća tabela i [§ 9](#9-dnevnik-izmjena).
 
-### 8.1 Šta iz startera ostaje, a šta je obrisano (#31)
+### 8.1 Šta iz startera ostaje, a šta je obrisano (#54)
 
 | Dio startera | Odluka | Razlog |
 |---|---|---|
 | Auth (login, refresh, register, reset, profil) | ostaje | Osnova za uloge instruktor i kandidat (#1) |
 | Uloge admin / manager / employee | ostaje za sada | Zamjenjuje ih #1 |
-| Valute i kursna lista | ostaje | Uplate u više valuta (#8, tačka 10 uputa) |
-| Upload fajlova (`IFileStorage`) | ostaje | Slike pitanja (#20) i dokumenti (#27) |
+| Valute i kursna lista | ostaje | Uplate u više valuta (#14–#16, tačka 10 uputa) |
+| Upload fajlova (`IFileStorage`) | ostaje | Slike pitanja (#36) i dokumenti (#50, #51) |
 | Email, keš (`ICacheService`) | ostaje | Generička infrastruktura |
 | Katalog, proizvodi, kategorije, promocije, favoriti | obrisano | Web shop, ne treba Roadwiseu |
 | Narudžbe, korpa, checkout, pretraga proizvoda | obrisano | Web shop |
@@ -419,7 +419,7 @@ Kratki odgovori za tehnički intervju na odbrani.
 
 | Entitet | Flow | Ključna polja / FK | Pravila | Issue |
 |---|---|---|---|---|
-| *npr. DrivingLicenseCategoryEntity* | 1 | | | #5 |
+| *npr. DrivingLicenseCategoryEntity* | 1 | | | #7 |
 
 ### 8.4 Moduli (Application) i endpointi
 
@@ -431,19 +431,19 @@ Kratki odgovori za tehnički intervju na odbrani.
 
 | Pravilo | Gdje se provjerava | Izuzetak / status | Unit test | Issue |
 |---|---|---|---|---|
-| Kandidat otkazuje najkasnije X sati prije termina; X je u konfiguraciji | *handler* | `RoadwiseBusinessRuleException` / 409 | *da* | #13 |
-| Prijava za ispit tek nakon minimalnog broja časova iz paketa | *handler* | 409 | *da* | #17 |
-| Termini istog instruktora se ne preklapaju | *handler* | 409 | | #10 |
-| Uplata čuva valutu, iznos i primijenjeni kurs | *handler* | | | #8 |
-| Test se može objaviti samo ako ima bar jedno pitanje | *handler* | 409 | | #21 |
-| Prolaz = procenat bodova ≥ prag prolaznosti | *handler / servis* | | *da* | #24 |
+| Kandidat otkazuje najkasnije X sati prije termina; X je u konfiguraciji | *handler* | `RoadwiseBusinessRuleException` / 409 | *da* | #25 |
+| Prijava za ispit tek nakon minimalnog broja časova iz paketa | *handler* | 409 | *da* | #29 |
+| Termini istog instruktora se ne preklapaju | *handler* | 409 | | #20 |
+| Uplata čuva valutu, iznos i primijenjeni kurs | *handler* | | | #15 |
+| Test se može objaviti samo ako ima bar jedno pitanje | *handler* | 409 | | #37 |
+| Prolaz = procenat bodova ≥ prag prolaznosti | *handler / servis* | | *da* | #44 |
 
 ### 8.6 Statusi (state machine)
 
 ```mermaid
 stateDiagram-v2
     direction LR
-    state "Termin za vožnju (#10–#14), prijedlog" as T {
+    state "Termin za vožnju (#19–#28), prijedlog" as T {
         [*] --> Slobodan
         Slobodan --> NaCekanju: kandidat rezerviše
         NaCekanju --> Potvrden: instruktor potvrdi
@@ -458,7 +458,7 @@ stateDiagram-v2
 ```mermaid
 stateDiagram-v2
     direction LR
-    state "Test (#19–#21), prijedlog" as TS {
+    state "Test (#32–#38), prijedlog" as TS {
         [*] --> Nacrt
         Nacrt --> Objavljen: ima ≥ 1 pitanje
         Objavljen --> Nacrt: povuci objavu
@@ -482,4 +482,4 @@ stateDiagram-v2
 | Datum | PR / issue | Šta je dodano u mapu |
 |---|---|---|
 | 17. 11. 2026. | – | Početna mapa arhitekture startera i prazan okvir za Roadwise |
-| 19. 11. 2026. | #31 | Clean slate: Market → Roadwise, uklonjen web shop, nova `Init` migracija; primjeri u § 3 i § 4 prebačeni na kursnu listu |
+| 19. 11. 2026. | #54 | Clean slate: Market → Roadwise, uklonjen web shop, nova `Init` migracija; primjeri u § 3 i § 4 prebačeni na kursnu listu |
