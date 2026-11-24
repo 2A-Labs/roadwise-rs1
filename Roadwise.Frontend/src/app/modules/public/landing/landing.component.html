@@ -1,0 +1,36 @@
+<!-- Početna (landing) stranica – prikazuje se u <router-outlet> javnog layouta -->
+<div class="landing-page">
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="logo-container">
+          <mat-icon class="logo-icon">directions_car</mat-icon>
+          <h1 class="brand-name">Roadwise</h1>
+        </div>
+        <h2 class="hero-title">{{ 'LANDING.HERO_TITLE' | translate }}</h2>
+        <p class="hero-description">{{ 'LANDING.HERO_DESCRIPTION' | translate }}</p>
+        <div class="hero-actions">
+          @if (currentUser.isAuthenticated()) {
+            <a mat-raised-button color="primary" class="cta-button" [routerLink]="currentUser.getDefaultRoute()">
+              <mat-icon>arrow_forward</mat-icon>
+              {{ 'LANDING.CONTINUE' | translate }}
+            </a>
+          } @else {
+            <a mat-raised-button color="primary" class="cta-button" routerLink="/auth/login">
+              <mat-icon>login</mat-icon>
+              {{ 'PUBLIC.NAV.LOGIN' | translate }}
+            </a>
+          }
+        </div>
+      </div>
+      <div class="hero-image">
+        @for (feature of features; track feature.key; let i = $index) {
+          <div class="floating-card" [class]="'card-' + (i + 1)">
+            <mat-icon>{{ feature.icon }}</mat-icon>
+            <span>{{ feature.key | translate }}</span>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+</div>

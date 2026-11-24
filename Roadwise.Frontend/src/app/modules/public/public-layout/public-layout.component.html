@@ -1,0 +1,12 @@
+<div class="public-shell">
+  <!-- Header (shared: isti header ima i klijentski dio /client) -->
+  <app-header />
+
+  <!-- Stranica (landing, konvertor) -->
+  <main class="public-content">
+    <router-outlet></router-outlet>
+  </main>
+
+  <!-- Footer -->
+  <footer class="public-footer">© {{ currentYear }} Roadwise</footer>
+</div>
