@@ -1,0 +1,353 @@
+{
+  "APP": {
+    "TITLE": "Roadwise",
+    "DESCRIPTION": "Sistem za upravljanje autoškolom."
+  },
+  "AUTH": {
+    "LOGIN": {
+      "TITLE": "Prijava",
+      "EMAIL_LABEL": "Email",
+      "EMAIL_PLACEHOLDER": "Unesite email",
+      "PASSWORD_LABEL": "Lozinka",
+      "PASSWORD_PLACEHOLDER": "Unesite lozinku",
+      "BUTTON": "Prijavi se",
+      "LOADING": "Prijavljivanje...",
+      "WELCOME_BACK": "Dobrodošli nazad",
+      "SUBTITLE": "Unesite vaše podatke za pristup",
+      "SHOW_PASSWORD": "Prikaži lozinku",
+      "HIDE_PASSWORD": "Sakrij lozinku",
+      "FORGOT_PASSWORD": "Zaboravili ste lozinku?",
+      "OR": "ili",
+      "NO_ACCOUNT": "Nemate nalog?",
+      "REGISTER": "Registrujte se",
+      "BACK_TO_HOME": "Nazad na početnu"
+    },
+    "LOGOUT": {
+      "TITLE": "Odjava",
+      "MESSAGE": "Odjavljivanje sa sistema...",
+      "REDIRECT_IN": "Preusmjeravanje za {{seconds}}s"
+    },
+    "REGISTER": {
+      "TAGLINE": "Napravite nalog",
+      "TITLE": "Registracija",
+      "SUBTITLE": "Unesite podatke za novi nalog",
+      "BUTTON": "Registruj se",
+      "LOADING": "Registracija...",
+      "OR": "ili",
+      "HAVE_ACCOUNT": "Već imate nalog?",
+      "LOGIN": "Prijavite se",
+      "BACK_TO_HOME": "Nazad na početnu"
+    },
+    "FORGOT_PASSWORD": {
+      "TAGLINE": "Vratite pristup svom nalogu",
+      "TITLE": "Zaboravljena lozinka",
+      "SUBTITLE": "Unesite email naloga i poslaćemo vam link za promjenu lozinke.",
+      "BUTTON": "Pošalji link",
+      "LOADING": "Slanje...",
+      "SENT": "Ako nalog s tim emailom postoji, poslali smo link za promjenu lozinke.",
+      "DEV_HINT": "U razvoju se email ispisuje u log backenda.",
+      "BACK_TO_LOGIN": "Nazad na prijavu",
+      "REMEMBERED": "Sjetili ste se lozinke?",
+      "LOGIN": "Prijavite se",
+      "BACK_TO_HOME": "Nazad na početnu"
+    },
+    "RESET_PASSWORD": {
+      "TAGLINE": "Postavite novu lozinku",
+      "TITLE": "Nova lozinka",
+      "SUBTITLE": "Nalog: {{email}}",
+      "BUTTON": "Promijeni lozinku",
+      "LOADING": "Mijenjanje lozinke...",
+      "SUCCESS": "Lozinka je promijenjena. Prijavite se novom lozinkom.",
+      "INVALID_LINK": "Link za promjenu lozinke je nevažeći ili je istekao.",
+      "REQUEST_NEW": "Zatražite novi link",
+      "BACK_TO_LOGIN": "Nazad na prijavu"
+    }
+  },
+  "ACCOUNT": {
+    "FIELDS": {
+      "FIRSTNAME": "Ime",
+      "LASTNAME": "Prezime",
+      "EMAIL": "Email",
+      "ADDRESS": "Adresa",
+      "CITY": "Grad",
+      "PASSWORD": "Lozinka",
+      "CONFIRM_PASSWORD": "Ponovite lozinku",
+      "CURRENT_PASSWORD": "Trenutna lozinka",
+      "NEW_PASSWORD": "Nova lozinka",
+      "PASSWORD_HINT": "Najmanje {{min}} znakova, bar jedno slovo i jedna cifra"
+    },
+    "PROFILE": {
+      "TITLE": "Moj profil",
+      "LOADING": "Učitavanje profila...",
+      "DATA_TITLE": "Lični podaci",
+      "DATA_SUBTITLE": "Ime, prezime i adresa",
+      "EMAIL_HINT": "Email se ovdje ne mijenja.",
+      "ADDRESS_HINT": "Ulica i broj, npr. Maršala Tita 1",
+      "SAVED": "Profil je sačuvan."
+    },
+    "CHANGE_PASSWORD": {
+      "TITLE": "Promjena lozinke",
+      "SUBTITLE": "Nakon promjene bićete odjavljeni na ostalim uređajima.",
+      "BUTTON": "Promijeni lozinku",
+      "SUCCESS": "Lozinka je promijenjena. Ostali uređaji su odjavljeni."
+    }
+  },
+  "PUBLIC": {
+    "NAV": {
+      "MY_ACCOUNT": "Moj nalog",
+      "LOGIN": "Prijava",
+      "CONVERTER": "Konvertor valuta",
+      "MY_PROFILE": "Moj profil",
+      "ADMIN_PANEL": "Admin panel",
+      "LOGOUT": "Odjava"
+    }
+  },
+  "LANDING": {
+    "HERO_TITLE": "Autoškola na jednom mjestu",
+    "HERO_DESCRIPTION": "Rezervišite časove vožnje, pripremite se za teorijski ispit kroz testove i materijale i pratite svoj napredak do vozačke dozvole.",
+    "CONTINUE": "Nastavi u aplikaciju",
+    "FEATURE_LESSONS": "Časovi vožnje",
+    "FEATURE_TESTS": "Testovi za teoriju",
+    "FEATURE_MATERIALS": "Video lekcije i dokumenti"
+  },
+  "CURRENCY": {
+    "SELECT": "Valuta za prikaz cijena",
+    "KM_NOTE": "Iznosi se obračunavaju u KM; iznos u drugoj valuti je informativan."
+  },
+  "CONVERTER": {
+    "TITLE": "Konvertor valuta",
+    "INTRO": "Iznos preračunava server po kursnoj listi; za raniji datum koristi se kurs koji je tada važio.",
+    "AMOUNT": "Iznos",
+    "FROM": "Iz valute",
+    "TO": "U valutu",
+    "SWAP": "Zamijeni valute",
+    "DATE": "Datum kursa (opciono)",
+    "DATE_HINT": "Prazno = današnji kurs",
+    "CONVERT": "Preračunaj",
+    "RATE": "Kurs",
+    "RATE_DATE": "Kurs važi od"
+  },
+  "CLIENT": {
+    "HOME": {
+      "TITLE": "Dobrodošli",
+      "LOGGED_IN_AS": "Prijavljeni ste kao {{email}}.",
+      "DESCRIPTION": "Ovdje će biti vaši termini vožnje, testovi i materijali.",
+      "MY_PROFILE": "Moj profil",
+      "LOGOUT": "Odjava"
+    }
+  },
+  "ADMIN_PANEL": {
+    "TITLE": "Admin Panel",
+    "ROLES": {
+      "ADMIN": "Administrator",
+      "MANAGER": "Menadžer",
+      "EMPLOYEE": "Zaposlenik"
+    },
+    "MENU": {
+      "HOME": "Početna",
+      "SYSTEM": "SISTEM",
+      "SETTINGS": "Postavke",
+      "MY_PROFILE": "Moj profil",
+      "LOGOUT": "Odjava",
+      "EXCHANGE_RATES": "Kursna lista"
+    }
+  },
+  "ADMIN_HOME": {
+    "TITLE": "Početna",
+    "LOGGED_IN_AS": "Prijavljeni ste kao {{email}}.",
+    "EMPTY": "Ovdje dolazi dashboard autoškole (kandidati, termini, uplate, rezultati testova)."
+  },
+  "ADMIN_SETTINGS": {
+    "TITLE": "Postavke",
+    "EMPTY": "Ovdje dolaze postavke aplikacije (npr. podaci o autoškoli, rok za otkazivanje termina, podrazumijevana valuta). Lični podaci i lozinka su na stranici „Moj profil”."
+  },
+  "EXCHANGE_RATES": {
+    "TITLE": "Kursna lista",
+    "SUBTITLE": "Koliko KM vrijedi 1 jedinica valute. Kurs važi od svog datuma do sljedećeg kursa iste valute.",
+    "REFRESH": "Osvježi s ECB",
+    "REFRESH_DONE": "Preuzeto novih kurseva: {{updated}} (izvor: {{source}}).",
+    "REFRESH_SKIPPED": "Izvor ne objavljuje: {{codes}}.",
+    "REFRESH_FAILED": "Osvježavanje kursne liste nije uspjelo",
+    "ADD_TITLE": "Novi kurs",
+    "CURRENCY": "Valuta",
+    "RATE": "Kurs u KM",
+    "RATE_HINT": "Najviše 6 decimala, npr. 1.955830",
+    "VALID_FROM": "Važi od",
+    "SOURCE": "Izvor",
+    "FILTER_CURRENCY": "Valuta",
+    "NO_DATA": "Nema kurseva za prikaz",
+    "SAVED": "Kurs je dodan.",
+    "DELETED": "Kurs je obrisan.",
+    "DELETE_TITLE": "Brisanje kursa",
+    "DELETE_MESSAGE": "Da li ste sigurni da želite obrisati ovaj kurs valute {{code}}? Konverzije za taj period koristiće prethodni kurs."
+  },
+  "COMMON": {
+    "YES": "Da",
+    "NO": "Ne",
+    "CANCEL": "Otkaži",
+    "SAVE": "Sačuvaj",
+    "DELETE": "Obriši",
+    "EDIT": "Uredi",
+    "CREATE": "Kreiraj",
+    "SEARCH": "Pretraži",
+    "LOADING": "Učitavanje...",
+    "ERROR": "Došlo je do greške",
+    "SUCCESS": "Uspjeh",
+    "WARNING": "Upozorenje",
+    "INFO": "Informacija",
+    "CLOSE": "Zatvori",
+    "CONFIRM": "Potvrdi",
+    "REFRESH": "Osvježi",
+    "RETRY": "Pokušaj Ponovo",
+    "CLEAR": "Očisti",
+    "RESET": "Resetuj",
+    "APPLY": "Primijeni",
+    "FILTER": "Filtriraj",
+    "SORT": "Sortiraj",
+    "EXPORT": "Izvezi",
+    "IMPORT": "Uvezi",
+    "DOWNLOAD": "Preuzmi",
+    "UPLOAD": "Učitaj",
+    "VIEW": "Pogledaj",
+    "DETAILS": "Detalji",
+    "BACK": "Nazad",
+    "NEXT": "Sljedeće",
+    "PREVIOUS": "Prethodno",
+    "FINISH": "Završi",
+    "SUBMIT": "Pošalji",
+    "UPDATE": "Ažuriraj",
+    "ADD": "Dodaj",
+    "REMOVE": "Ukloni",
+    "SELECT": "Odaberi",
+    "SELECT_ALL": "Odaberi Sve",
+    "DESELECT_ALL": "Poništi Sve",
+    "ACTIONS": "Akcije",
+    "STATUS": "Status",
+    "ACTIVE": "Aktivan",
+    "INACTIVE": "Neaktivan",
+    "ENABLED": "Omogućen",
+    "DISABLED": "Onemogućen",
+    "NAME": "Naziv",
+    "DESCRIPTION": "Opis",
+    "PRICE": "Cijena",
+    "TOTAL": "Ukupno",
+    "SUBTOTAL": "Međuzbroj",
+    "DISCOUNT": "Popust",
+    "QUANTITY": "Količina",
+    "DATE": "Datum",
+    "TIME": "Vrijeme",
+    "CREATED": "Kreirano",
+    "UPDATED": "Ažurirano",
+    "DELETED": "Obrisano",
+    "CREATED_AT": "Kreirano",
+    "UPDATED_AT": "Ažurirano",
+    "DELETED_AT": "Obrisano",
+    "CREATED_BY": "Kreirao",
+    "UPDATED_BY": "Ažurirao",
+    "ALL": "Sve",
+    "NONE": "Ništa",
+    "OTHER": "Ostalo",
+    "UNKNOWN": "Nepoznato",
+    "N_A": "N/D",
+    "OPTIONAL": "Opciono",
+    "REQUIRED": "Obavezno"
+  },
+  "DIALOGS": {
+    "TYPES": {
+      "INFO": "Informacija",
+      "SUCCESS": "Uspjeh",
+      "ERROR": "Greška",
+      "WARNING": "Upozorenje",
+      "QUESTION": "Pitanje"
+    },
+    "BUTTONS": {
+      "OK": "U redu",
+      "CANCEL": "Otkaži",
+      "YES": "Da",
+      "NO": "Ne",
+      "CLOSE": "Zatvori",
+      "DELETE": "Obriši",
+      "SAVE": "Sačuvaj",
+      "CONTINUE": "Nastavi",
+      "BACK": "Nazad"
+    },
+    "TITLES": {
+      "CONFIRM_DELETE": "Potvrdi Brisanje",
+      "CONFIRM_ACTION": "Potvrdi Akciju",
+      "UNSAVED_CHANGES": "Nesačuvane Izmjene",
+      "SUCCESS": "Uspjeh",
+      "ERROR": "Greška",
+      "WARNING": "Upozorenje",
+      "INFO": "Informacija"
+    },
+    "MESSAGES": {
+      "DELETE_CONFIRM": "Da li ste sigurni da želite obrisati \"{{name}}\"?",
+      "DELETE_WARNING": "Ova akcija se ne može poništiti.",
+      "UNSAVED_CHANGES": "Imate nesačuvane izmjene. Da li želite nastaviti?",
+      "SUCCESS_SAVE": "Podaci uspješno sačuvani.",
+      "SUCCESS_DELETE": "Stavka uspješno obrisana.",
+      "SUCCESS_UPDATE": "Podaci uspješno ažurirani.",
+      "ERROR_GENERIC": "Došlo je do greške. Molimo pokušajte ponovo.",
+      "ERROR_NETWORK": "Greška u mreži. Provjerite internet konekciju.",
+      "ARE_YOU_SURE": "Da li ste sigurni?"
+    }
+  },
+  "PAGINATION": {
+    "ITEMS_PER_PAGE": "Stavki po stranici",
+    "FIRST_PAGE": "Prva stranica",
+    "LAST_PAGE": "Posljednja stranica",
+    "NEXT_PAGE": "Sljedeća stranica",
+    "PREVIOUS_PAGE": "Prethodna stranica",
+    "PAGE": "Stranica",
+    "OF": "od",
+    "SHOWING": "Prikazano",
+    "TO": "do",
+    "RESULTS": "rezultata",
+    "NO_ITEMS": "Nema stavki za prikaz",
+    "TOTAL": "Ukupno",
+    "PREVIOUS": "Prethodna",
+    "NEXT": "Sljedeća"
+  },
+  "VALIDATION": {
+    "REQUIRED": "Ovo polje je obavezno",
+    "REQUIRED_FIELD": "{{field}} je obavezno",
+    "EMAIL": "Unesite validnu email adresu",
+    "MIN_LENGTH": "Minimalna dužina je {{min}} znakova",
+    "MAX_LENGTH": "Maksimalna dužina je {{max}} znakova",
+    "MIN_VALUE": "Minimalna vrijednost je {{min}}",
+    "MAX_VALUE": "Maksimalna vrijednost je {{max}}",
+    "PATTERN": "Neispravan format",
+    "NUMBER": "Unesite validan broj",
+    "INTEGER": "Unesite cijeli broj",
+    "POSITIVE": "Vrijednost mora biti pozitivna",
+    "NEGATIVE": "Vrijednost mora biti negativna",
+    "URL": "Unesite validan URL",
+    "DATE": "Unesite validan datum",
+    "TIME": "Unesite validno vrijeme",
+    "PHONE": "Unesite validan broj telefona",
+    "PASSWORD": "Lozinka mora imati najmanje {{min}} znakova, bar jedno slovo i jednu cifru",
+    "PASSWORD_MATCH": "Lozinke se ne podudaraju",
+    "UNIQUE": "Ova vrijednost već postoji",
+    "CUSTOM": "Greška pri validaciji",
+    "URL_OR_PATH": "Unesite https:// adresu ili rutu aplikacije koja počinje sa \"/\"",
+    "MAX_DECIMALS": "Najviše {{max}} decimala",
+    "DATE_RANGE": "Kraj mora biti nakon početka",
+    "SELECT_FROM_LIST": "Odaberite vrijednost iz liste",
+    "FILE_TYPE": "Dozvoljeni formati: {{types}}",
+    "FILE_SIZE": "Fajl je veći od {{max}} MB"
+  },
+  "ERRORS": {
+    "GENERIC": "Došlo je do greške. Pokušajte ponovo.",
+    "NETWORK": "Greška u mreži. Provjerite konekciju.",
+    "TIMEOUT": "Isteklo vrijeme zahtjeva. Pokušajte ponovo.",
+    "UNAUTHORIZED": "Niste autorizovani za ovu akciju.",
+    "LOGIN_REQUIRED": "Sesija je istekla ili niste prijavljeni. Prijavite se ponovo.",
+    "FORBIDDEN": "Nemate dozvolu za ovu akciju.",
+    "NOT_FOUND": "Resurs nije pronađen.",
+    "SERVER_ERROR": "Greška na serveru. Pokušajte kasnije.",
+    "BAD_REQUEST": "Neispravan zahtjev.",
+    "CONFLICT": "Ova akcija je u konfliktu sa postojećim podacima.",
+    "VALIDATION": "Provjerite formu za greške.",
+    "UNKNOWN": "Nepoznata greška."
+  }
+}

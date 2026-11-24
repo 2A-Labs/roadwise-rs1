@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Roadwise (all, Testing)" type="CompoundRunConfigurationType">
+    <toRun name="Roadwise API (Testing)" type="LaunchSettings" />
+    <toRun name="Roadwise Frontend (Testing)" type="js.build_tools.npm" />
+    <method v="2" />
+  </configuration>
+</component>
