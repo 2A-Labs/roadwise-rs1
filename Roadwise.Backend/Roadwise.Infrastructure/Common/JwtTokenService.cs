@@ -35,8 +35,8 @@ public sealed class JwtTokenService : IJwtTokenService
             new(ClaimTypes.NameIdentifier,   user.Id.ToString()),
             new(JwtRegisteredClaimNames.Email, user.Email), // "email"; mapped to ClaimTypes.Email on the way in
             new("is_admin",    user.IsAdmin.ToString().ToLowerInvariant()),
-            new("is_manager",  user.IsManager.ToString().ToLowerInvariant()),
-            new("is_employee", user.IsEmployee.ToString().ToLowerInvariant()),
+            new("is_instructor",  user.IsInstructor.ToString().ToLowerInvariant()),
+            new("is_candidate", user.IsCandidate.ToString().ToLowerInvariant()),
             new("ver",         user.TokenVersion.ToString()),
             new(JwtRegisteredClaimNames.Iat, ToUnixTimeSeconds(nowInstant).ToString(), ClaimValueTypes.Integer64),
             new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString("N"))

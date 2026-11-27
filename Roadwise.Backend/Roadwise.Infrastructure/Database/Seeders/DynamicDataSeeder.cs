@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Roadwise.Domain.Entities.Finance;
 using Roadwise.Domain.Entities.Identity;
@@ -37,38 +37,23 @@ public static class DynamicDataSeeder
             Address = "Maršala Tita 1",
             City = "Sarajevo",
             IsAdmin = true,
-            IsManager = false,
-            IsEmployee = false,
+            IsInstructor = false,
+            IsCandidate = false,
             IsEnabled = true,
             CreatedAtUtc = DateTime.UtcNow
         };
 
-        var manager = new RoadwiseUserEntity
+        var instructor = new RoadwiseUserEntity
         {
-            Firstname = "Manager",
-            Lastname = "Roadwise",
-            Email = "manager@roadwise.local",
-            PasswordHash = hasher.HashPassword(null!, "Manager123!"),
+            Firstname = "Instruktor",
+            Lastname = "Demo",
+            Email = "instruktor@roadwise.local",
+            PasswordHash = hasher.HashPassword(null!, "Instruktor123!"),
             Address = "Ferhadija 12",
             City = "Sarajevo",
             IsAdmin = false,
-            IsManager = true,
-            IsEmployee = false,
-            IsEnabled = true,
-            CreatedAtUtc = DateTime.UtcNow
-        };
-
-        var employee = new RoadwiseUserEntity
-        {
-            Firstname = "Employee",
-            Lastname = "Roadwise",
-            Email = "employee@roadwise.local",
-            PasswordHash = hasher.HashPassword(null!, "Employee123!"),
-            Address = "Kralja Tvrtka 5",
-            City = "Zenica",
-            IsAdmin = false,
-            IsManager = false,
-            IsEmployee = true,
+            IsInstructor = true,
+            IsCandidate = false,
             IsEnabled = true,
             CreatedAtUtc = DateTime.UtcNow
         };
@@ -82,8 +67,8 @@ public static class DynamicDataSeeder
             Address = "Zmaja od Bosne 8",
             City = "Sarajevo",
             IsAdmin = false,
-            IsManager = false,
-            IsEmployee = true,
+            IsInstructor = true,
+            IsCandidate = false,
             IsEnabled = true,
             CreatedAtUtc = DateTime.UtcNow
         };
@@ -97,14 +82,13 @@ public static class DynamicDataSeeder
             Address = "Titova 3",
             City = "Tuzla",
             IsAdmin = false,
-            IsManager = false,
-            IsEmployee = true,
+            IsInstructor = false,
+            IsCandidate = true,
             IsEnabled = true,
             CreatedAtUtc = DateTime.UtcNow
         };
 
-        // Regular user (no role flags): lands on /client after login
-        var user = new RoadwiseUserEntity
+        var candidate = new RoadwiseUserEntity
         {
             Firstname = "Kandidat",
             Lastname = "Demo",
@@ -113,19 +97,18 @@ public static class DynamicDataSeeder
             Address = "Bulevar Meše Selimovića 15",
             City = "Sarajevo",
             IsAdmin = false,
-            IsManager = false,
-            IsEmployee = false,
+            IsInstructor = false,
+            IsCandidate = true,
             IsEnabled = true,
             CreatedAtUtc = DateTime.UtcNow
         };
 
         context.Users.AddRange(
             admin,
-            manager,
-            employee,
+            instructor,
+            candidate,
             dummyForSwagger,
-            dummyForTests,
-            user
+            dummyForTests
         );
 
         await context.SaveChangesAsync();

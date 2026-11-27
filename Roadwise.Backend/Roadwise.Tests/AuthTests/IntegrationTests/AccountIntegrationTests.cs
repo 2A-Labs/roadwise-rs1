@@ -1,4 +1,4 @@
-using Roadwise.Application.Modules.Auth.Commands.ChangePassword;
+﻿using Roadwise.Application.Modules.Auth.Commands.ChangePassword;
 using Roadwise.Application.Modules.Auth.Commands.Register;
 using Roadwise.Application.Modules.Auth.Queries.GetMe;
 using Roadwise.Shared.Dtos;
@@ -38,7 +38,7 @@ public class AccountIntegrationTests
     }
 
     /// <summary>
-    /// Registers a new customer with <see cref="Password"/> and returns its email and tokens.
+    /// Registers a new user with <see cref="Password"/> and returns its email and tokens.
     /// </summary>
     private async Task<(string Email, RegisterCommandDto Tokens)> RegisterAsync()
     {
@@ -66,7 +66,7 @@ public class AccountIntegrationTests
     }
 
     [Fact]
-    public async Task Post_Register_NewCustomer_Returns201WithTokens_AndIsLoggedIn()
+    public async Task Post_Register_NewUser_Returns201WithTokens_AndIsLoggedIn()
     {
         // Act
         var (email, tokens) = await RegisterAsync();
@@ -79,7 +79,25 @@ public class AccountIntegrationTests
         Assert.Equal(email, me!.Email);
         Assert.Equal("Titova 10", me.Address);
         Assert.Equal("Sarajevo", me.City);
-        Assert.False(me.IsAdmin || me.IsManager || me.IsEmployee); // a new account is a customer
+        Assert.False(me.IsAdmin || me.IsInstructor || me.IsCandidate); // a new account has no role
+    }
+
+    [Theory]
+    [InlineData(CustomWebApplicationFactory<Program>.InstructorEmail, CustomWebApplicationFactory<Program>.InstructorPassword, true, false)]
+    [InlineData(CustomWebApplicationFactory<Program>.CandidateEmail, CustomWebApplicationFactory<Program>.CandidatePassword, false, true)]
+    public async Task Get_Me_SeededUser_HasCorrectRole(string email, string password, bool isInstructor, bool isCandidate)
+    {
+        // Arrange: log in with a seeded account
+        var login = await CreateClient().PostAsJsonAsync("api/auth/login", new { Email = email, Password = password });
+        var tokens = await login.Content.ReadFromJsonAsync<RegisterCommandDto>();
+
+        // Act
+        var me = await CreateClient(tokens!.AccessToken).GetFromJsonAsync<GetMeQueryDto>("api/auth/me");
+
+        // Assert
+        Assert.Equal(isInstructor, me!.IsInstructor);
+        Assert.Equal(isCandidate, me.IsCandidate);
+        Assert.False(me.IsAdmin);
     }
 
     [Fact]

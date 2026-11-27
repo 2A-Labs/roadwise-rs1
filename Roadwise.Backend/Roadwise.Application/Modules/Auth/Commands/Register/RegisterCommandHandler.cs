@@ -27,8 +27,8 @@ public sealed class RegisterCommandHandler(
             Address = request.Address.TrimToNull(),
             City = request.City.TrimToNull(),
             IsAdmin = false,
-            IsManager = false,
-            IsEmployee = false,
+            IsInstructor = false,
+            IsCandidate = false,
             IsEnabled = true
         };
         user.PasswordHash = hasher.HashPassword(user, request.Password);
