@@ -14,8 +14,10 @@ public class CustomWebApplicationFactory<TProgram> : WebApplicationFactory<Progr
     // Seeded accounts (see DynamicDataSeeder)
     public const string AdminEmail = "admin@roadwise.local";
     public const string AdminPassword = "Admin123!";
-    public const string EmployeeEmail = "employee@roadwise.local";
-    public const string EmployeePassword = "Employee123!";
+    public const string InstructorEmail = "instruktor@roadwise.local";
+    public const string InstructorPassword = "Instruktor123!";
+    public const string CandidateEmail = "kandidat@roadwise.local";
+    public const string CandidatePassword = "Kandidat123!";
 
     /// <summary>
     /// JWT signing key used only by integration tests. appsettings.json has an empty key on purpose

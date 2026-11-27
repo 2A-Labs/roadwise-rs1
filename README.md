@@ -62,13 +62,12 @@ Ako HTTPS certifikat ne radi, pokrenite backend s profilom `http` i u `src/envir
 | Email | Lozinka | Uloga |
 |---|---|---|
 | `admin@roadwise.local` | `Admin123!` | administrator (`/admin`) |
-| `manager@roadwise.local` | `Manager123!` | menadžer |
-| `employee@roadwise.local` | `Employee123!` | uposlenik |
-| `kandidat@roadwise.local` | `Kandidat123!` | korisnik bez uloge (`/client`) |
-| `string` | `string` | za Swagger |
+| `instruktor@roadwise.local` | `Instruktor123!` | instruktor |
+| `kandidat@roadwise.local` | `Kandidat123!` | kandidat (`/client`) |
+| `string` | `string` | instruktor, za Swagger |
 | `test` | `test123` | za testove |
 
-Uloge su za sada one iz početnog projekta. Uloge **instruktor** i **kandidat** uvodi issue #1.
+Uloge su **administrator**, **instruktor** i **kandidat** (polja `IsAdmin`, `IsInstructor`, `IsCandidate` na korisniku). Na backendu se provjeravaju politikama `PolicyNames.Admin`, `PolicyNames.Instructor` i `PolicyNames.Candidate`. Demo korisnici se upisuju samo u praznu bazu; ako baza već ima korisnike, obrišite je da se ponovo kreira.
 
 Administrator nakon prijave ide na `/admin`, svi ostali na `/client`. Novi korisnik se može registrovati na `/auth/register`. Lozinka mora imati najmanje 8 znakova, bar jedno slovo i jednu cifru.
 

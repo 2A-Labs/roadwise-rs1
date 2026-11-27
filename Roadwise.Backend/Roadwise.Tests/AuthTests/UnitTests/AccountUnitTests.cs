@@ -128,7 +128,7 @@ public class AccountUnitTests
         public string? Email => null;
         public bool IsAuthenticated => true;
         public bool IsAdmin => false;
-        public bool IsManager => false;
-        public bool IsEmployee => false;
+        public bool IsInstructor => false;
+        public bool IsCandidate => false;
     }
 }

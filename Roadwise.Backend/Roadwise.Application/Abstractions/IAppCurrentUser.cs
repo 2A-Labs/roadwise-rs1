@@ -26,12 +26,12 @@ public interface IAppCurrentUser
     bool IsAdmin { get; }
 
     /// <summary>
-    /// Indicates whether the user is a manager.
+    /// Indicates whether the user is a driving instructor.
     /// </summary>
-    bool IsManager { get; }
+    bool IsInstructor { get; }
 
     /// <summary>
-    /// Indicates whether the user is a regular employee.
+    /// Indicates whether the user is a driving school candidate.
     /// </summary>
-    bool IsEmployee { get; }
+    bool IsCandidate { get; }
 }

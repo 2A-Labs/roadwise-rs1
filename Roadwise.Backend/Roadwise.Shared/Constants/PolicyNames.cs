@@ -10,4 +10,14 @@ public static class PolicyNames
     /// Only users whose access token contains the claim <c>is_admin = "true"</c>.
     /// </summary>
     public const string Admin = "Admin";
+
+    /// <summary>
+    /// Only users whose access token contains the claim <c>is_instructor = "true"</c>.
+    /// </summary>
+    public const string Instructor = "Instructor";
+
+    /// <summary>
+    /// Only users whose access token contains the claim <c>is_candidate = "true"</c>.
+    /// </summary>
+    public const string Candidate = "Candidate";
 }
